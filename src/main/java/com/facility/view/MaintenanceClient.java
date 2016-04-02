@@ -2,8 +2,7 @@ package com.facility.view;
 
 import java.util.List;
 
-import com.facility.base.Facility;
-import com.facility.base.FacilityDetail;
+import com.facility.base.*;
 import com.facility.maintenance.Maintenance;
 import com.facility.service.MaintenanceService;
 
@@ -14,26 +13,26 @@ public class MaintenanceClient {
 		MaintenanceService maintenanceService = new MaintenanceService();
 		
 		//set up facilities for dummy data
-		Facility fact1 = new Facility();
-		FacilityDetail factDet1 = new FacilityDetail();
+		Facility fact1 = new FacilityImpl();
+		FacilityDetail factDet1 = new FacilityDetailImpl();
 		fact1.setFacilityID(1);
 		factDet1.setNumberOfRooms(2);
 		fact1.setDetailsAboutFacility(factDet1);
 		
-		Facility fact3 = new Facility();
-		FacilityDetail factDet3 = new FacilityDetail();
+		Facility fact3 = new FacilityImpl();
+		FacilityDetail factDet3 = new FacilityDetailImpl();
 		fact3.setFacilityID(3);
 		factDet3.setNumberOfRooms(6);
 		fact3.setDetailsAboutFacility(factDet3);
 		
-		Facility fact4 = new Facility();
-		FacilityDetail factDet4 = new FacilityDetail();
+		Facility fact4 = new FacilityImpl();
+		FacilityDetail factDet4 = new FacilityDetailImpl();
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
 		fact4.setDetailsAboutFacility(factDet4);
 		
-		Facility fact7 = new Facility();
-		FacilityDetail factDet7 = new FacilityDetail();
+		Facility fact7 = new FacilityImpl();
+		FacilityDetail factDet7 = new FacilityDetailImpl();
 		fact7.setFacilityID(7);
 		factDet7.setNumberOfRooms(10);
 		fact7.setDetailsAboutFacility(factDet7);

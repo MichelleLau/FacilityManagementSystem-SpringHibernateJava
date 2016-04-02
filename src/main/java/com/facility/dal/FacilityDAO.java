@@ -80,14 +80,14 @@ public class FacilityDAO {
 	 	 
 	    try {
 	    	
-	    	Facility fac1 = new Facility();
+	    	Facility fac1 = new FacilityImpl();
 	    	fac1.setFacilityID(ID);
 		      	    		  
 		    //Get details about facility
 	    	Statement st = DBHelper.getConnection().createStatement();
 		    String selectDetailQuery = "SELECT name,facility_id,number_of_rooms,phone FROM facility_detail WHERE facility_id = '" + ID + "'";
 		    ResultSet detRS = st.executeQuery(selectDetailQuery);
-	    	FacilityDetail detail = new FacilityDetail();
+	    	FacilityDetail detail = new FacilityDetailImpl();
 	    	  
 	    	System.out.println("FacilityDAO: *************** Query " + selectDetailQuery + "\n");
 	    	  
@@ -215,7 +215,7 @@ public class FacilityDAO {
 	    	ResultSet facRS = st.executeQuery(getAllFacilitiesQuery);      
 	    	System.out.println("FacilityDAO: *************** Query " + getAllFacilitiesQuery + "\n");
 	    	
-	    	Facility fac1 = new Facility();
+	    	Facility fac1 = new FacilityImpl();
 		    while ( facRS.next() ) {
 		    	fac1.setFacilityID(facRS.getInt("id"));
 		    	listOfFac.add(getFacilityInformation(fac1.getFacilityID()));

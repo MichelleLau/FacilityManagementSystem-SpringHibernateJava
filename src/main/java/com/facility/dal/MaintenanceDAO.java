@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.facility.base.Facility;
-import com.facility.maintenance.Maintenance;
+import com.facility.maintenance.*;
 
 public class MaintenanceDAO {
 
@@ -24,7 +24,7 @@ public class MaintenanceDAO {
 		
 		 try { 		
 	    	
-			Maintenance maint = new Maintenance();
+			Maintenance maint = new MaintenanceImpl();
 			maint.setDetails(maintenanceDetails);
 			maint.setCost(cost);
 			maint.setFacilityID(fac.getFacilityID());
@@ -158,7 +158,7 @@ public class MaintenanceDAO {
 	    	System.out.println("UseDAO: *************** Query " + listMaintRequestsQuery + "\n");
 	    	
 		    while ( maintRS.next() ) {
-		    	Maintenance maintenanceRequest = new Maintenance();
+		    	Maintenance maintenanceRequest = new MaintenanceImpl();
 		    	maintenanceRequest.setDetails(maintRS.getString("details"));
 		    	maintenanceRequest.setCost(maintRS.getInt("cost"));
 		    	maintenanceRequest.setFacilityID(fac.getFacilityID());
@@ -201,7 +201,7 @@ public class MaintenanceDAO {
 	    	System.out.println("UseDAO: *************** Query " + listMaintenanceQuery + "\n");
 	    	
 		    while ( maintRS.next() ) {
-		    	Maintenance maintenance = new Maintenance();
+		    	Maintenance maintenance = new MaintenanceImpl();
 		    	maintenance.setDetails(maintRS.getString("details"));
 		    	maintenance.setCost(maintRS.getInt("cost"));
 		    	maintenance.setFacilityID(fac.getFacilityID());
