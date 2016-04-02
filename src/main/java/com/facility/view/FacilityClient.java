@@ -42,7 +42,6 @@ public class FacilityClient {
         Facility fact = new Facility();;
 		fact.setFacilityID(11);
 		FacilityDetail detail = new FacilityDetail();
-		detail.setFacilityID(11);
 		detail.setName("IT Center");
 		detail.setNumberOfRooms(4);
 		//detail.setPhoneNumber(5550123);

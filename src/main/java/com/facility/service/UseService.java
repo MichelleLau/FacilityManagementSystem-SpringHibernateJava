@@ -31,16 +31,17 @@ public class UseService {
 	/***
 	 * Checks if a particular room at a facility is in use during an interval.
 	 * Use 0 for room number if checking the entire facility.
+	 * @param fac facility to be checked
 	 * @param facUse instance of FacilityUse to be checked which indicates the room number and start/end dates
 	 * @return true if facility/room is in use, otherwise false
 	 */
-	public boolean isInUseDuringInterval(FacilityUse facUse) {
+	public boolean isInUseDuringInterval(Facility fac, FacilityUse facUse) {
 		//ensures the start and end data are valid and room number exists
 		if (facUse.getStartDate().isAfter(facUse.getEndDate())) {
 			System.out.println("Start date must be before end date.");
-		} else if (facUse.getRoomNumber() > facUse.getDetailsAboutFacility().getNumberOfRooms()) {
+		} else if (facUse.getRoomNumber() > fac.getDetailsAboutFacility().getNumberOfRooms()) {
 			System.out.println("Invalid room number. There are only " + 
-					facUse.getDetailsAboutFacility().getNumberOfRooms() + 
+					fac.getDetailsAboutFacility().getNumberOfRooms() + 
 					" rooms at this facility.");
 		} else {
 			try {
@@ -57,18 +58,19 @@ public class UseService {
 	/***
 	 * Assigns a facility and room number to use from a particular start date to a particular end date.
 	 * Enter room number 0 if assigning entire facility to use.
+	 * @param fac facility to be assigned a use object
 	 * @param facUse the instance of FacilityUse to be assigned which indicates room number and start/end dates
 	 */
-	public void assignFacilityToUse(FacilityUse facUse) {
+	public void assignFacilityToUse(Facility fac, FacilityUse facUse) {
 		
 		//ensures the start and end data are valid, room number exists, and room isn't already in use at that time
 		if (facUse.getStartDate().isAfter(facUse.getEndDate())) {
 			System.out.println("Start date must be before end date.");
-		} else if (facUse.getRoomNumber() > facUse.getDetailsAboutFacility().getNumberOfRooms()) {
+		} else if (facUse.getRoomNumber() > fac.getDetailsAboutFacility().getNumberOfRooms()) {
 			System.out.println("Invalid room number. There are only " + 
-					facUse.getDetailsAboutFacility().getNumberOfRooms() + 
+					fac.getDetailsAboutFacility().getNumberOfRooms() + 
 					" rooms at this facility.");
-		} else if (isInUseDuringInterval(facUse)) {
+		} else if (isInUseDuringInterval(fac, facUse)) {
 			System.out.println("This room at the facility is already in use during this interval.");
 		} else {
 			try {

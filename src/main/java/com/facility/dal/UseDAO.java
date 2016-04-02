@@ -75,7 +75,6 @@ public class UseDAO {
             Statement st = DBHelper.getConnection().createStatement();
 	    	String selectUseAssignments = "SELECT * FROM use WHERE facility_id = " + facUse.getFacilityID() + 
 	    			" AND room_number IN (0, " + facUse.getRoomNumber() + ")";
-
 	    	ResultSet useRS = st.executeQuery(selectUseAssignments);      
 	    	System.out.println("UseDAO: *************** Query " + selectUseAssignments + "\n");
 	    	

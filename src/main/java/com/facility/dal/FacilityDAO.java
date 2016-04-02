@@ -93,7 +93,6 @@ public class FacilityDAO {
 	    	  
 		    while ( detRS.next() ) {
 		    	detail.setName(detRS.getString("name"));
-		    	detail.setFacilityID(detRS.getInt("facility_id"));
 		    	detail.setNumberOfRooms(detRS.getInt("number_of_rooms"));
 		    	if (detRS.getInt("phone") != 0) {
 		    		detail.setPhoneNumber(detRS.getInt("phone"));
@@ -138,7 +137,7 @@ public class FacilityDAO {
             String addStm = "INSERT INTO facility_detail(name, facility_id, number_of_rooms, phone) VALUES(?, ?, ?, ?)";
             addPst = con.prepareStatement(addStm);
             addPst.setString(1, fac.getDetailsAboutFacility().getName());
-            addPst.setInt(2, fac.getDetailsAboutFacility().getFacilityID());  
+            addPst.setInt(2, fac.getFacilityID());  
             addPst.setInt(3, fac.getDetailsAboutFacility().getNumberOfRooms());
             if (fac.getDetailsAboutFacility().getPhoneNumber() != 0) {
             	addPst.setInt(4, fac.getDetailsAboutFacility().getPhoneNumber());

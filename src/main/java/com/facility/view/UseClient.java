@@ -51,21 +51,22 @@ public class UseClient {
 		}
 		
 		//set up new facility 12 to be checked if it's in use during an interval
-		FacilityUse factUse = new FacilityUse();;
+		FacilityUse factUse = new FacilityUse();
+		Facility fact12 = new Facility();
+		fact12.setFacilityID(12);
 		factUse.setFacilityID(12);
 		FacilityDetail factDet = new FacilityDetail();
 		factDet.setNumberOfRooms(6);
 		factDet.setName("Test Facility");
-		factDet.setFacilityID(12);
-		factUse.setDetailsAboutFacility(factDet);
-		facilityService.addNewFacility(factUse);
+		fact12.setDetailsAboutFacility(factDet);
+		facilityService.addNewFacility(fact12);
 		factUse.setStartDate(LocalDate.of(2015, 12, 1));
 		factUse.setEndDate(LocalDate.of(2017, 12, 1));
 		factUse.setRoomNumber(1);
 		
 		System.out.println("\nUseClient: ************ Checking if a facility is in use during an interval ***************");
 
-		boolean result = useService.isInUseDuringInterval(factUse);
+		boolean result = useService.isInUseDuringInterval(fact12, factUse);
 
 		System.out.print("\tFacility #" + factUse.getFacilityID());
 		if (factUse.getRoomNumber() != 0) {
@@ -80,13 +81,13 @@ public class UseClient {
 		
 		//assign the facility to use during the previously checked room and start/end date
 		System.out.println("\nUseClient: ************ Assigning a facility to use ***************");
-		useService.assignFacilityToUse(factUse);
+		useService.assignFacilityToUse(fact12, factUse);
 		System.out.println("\nUseClient: ************ Facility and room assigned ***************");
 		
 		//re-check if facility is in use
 		System.out.println("\nUseClient: ************ Checking if a facility is in use during an interval ***************");
 
-		boolean result2 = useService.isInUseDuringInterval(factUse);
+		boolean result2 = useService.isInUseDuringInterval(fact12, factUse);
 
 		System.out.print("\tFacility #" + factUse.getFacilityID());
 		if (factUse.getRoomNumber() != 0) {
@@ -104,7 +105,7 @@ public class UseClient {
 		System.out.println("\nUseClient: ************ Listing the usage at a facility before being vacated***************");
 		
 		//uses sample dummy data of usage in database
-		List<FacilityUse> usageList = useService.listActualUsage(factUse);
+		List<FacilityUse> usageList = useService.listActualUsage(fact12);
 		Object[][] usage = new Object[usageList.size() + 1][3];
 		usage[0] = new Object[] {"Room #", "Start Date", "End Date"};
 		for (int i = 1; i <= usageList.size(); i++) {
@@ -120,14 +121,14 @@ public class UseClient {
 		}
 		
 		System.out.println("\nUseClient: ************ Vacate a facility  ***************");
-		useService.vacateFacility(factUse, 1);
+		useService.vacateFacility(fact12, 1);
 		System.out.println("\nUseClient: ************ Facility vacated  ***************");
 		
 		//list actual usage that has been assigned to a particular facility
 		System.out.println("\nUseClient: ************ Listing the usage at a facility after being vacated***************");
 		
 		//uses sample dummy data of usage in database
-		List<FacilityUse> usageList2 = useService.listActualUsage(factUse);
+		List<FacilityUse> usageList2 = useService.listActualUsage(fact12);
 		Object[][] usage2 = new Object[usageList2.size() + 1][3];
 		usage2[0] = new Object[] {"Room #", "Start Date", "End Date"};
 		for (int i = 1; i <= usageList2.size(); i++) {

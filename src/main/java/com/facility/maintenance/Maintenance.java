@@ -1,14 +1,22 @@
 package com.facility.maintenance;
 
-import com.facility.base.Facility;
 
-public class Maintenance extends Facility {
+public class Maintenance {
 	
+	private int facilityID;
 	private String details;
 	private int cost;
 	
 	public Maintenance() {}
 	
+	public int getFacilityID() {
+		return facilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		this.facilityID = facilityID;
+	}
+
 	public String getDetails() {
 		return details;
 	}

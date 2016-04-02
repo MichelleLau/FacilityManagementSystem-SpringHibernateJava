@@ -1,6 +1,6 @@
 package com.facility.base;
 
-public class FacilityDetail extends Facility {
+public class FacilityDetail {
 
 	private String name;
 	private int numberOfRooms;

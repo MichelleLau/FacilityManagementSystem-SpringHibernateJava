@@ -4,14 +4,23 @@ import java.time.LocalDate;
 
 import com.facility.base.Facility;
 
-public class FacilityUse extends Facility {
+public class FacilityUse {
 	
+	private int facilityID;
 	private int roomNumber;
 	private LocalDate startDate;
 	private LocalDate endDate;
 
 	public FacilityUse() {}
 	
+	public int getFacilityID() {
+		return facilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		this.facilityID = facilityID;
+	}
+
 	public int getRoomNumber() {
 		return roomNumber;
 	}
