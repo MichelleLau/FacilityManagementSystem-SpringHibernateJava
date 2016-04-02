@@ -8,8 +8,8 @@ package com.facility.base;
  *
  */
 public interface Facility {
-	public FacilityDetail getDetailsAboutFacility();
-	public void setDetailsAboutFacility(FacilityDetail detailsAboutFacility);
+	public FacilityDetail getFacilityDetail();
+	public void setFacilityDetail(FacilityDetail facilityDetail);
 	public void setFacilityID(int facilityID);
 	public int getFacilityID();
 }

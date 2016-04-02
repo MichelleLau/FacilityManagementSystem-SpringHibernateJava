@@ -3,6 +3,10 @@ package com.facility.view;
 
 import java.util.List;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.facility.base.*;
 import com.facility.service.*;
 
@@ -10,42 +14,45 @@ public class FacilityClient {
 
 	public FacilityClient() throws Exception {
 		
-		FacilityService facService = new FacilityService();
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+        System.out.println("***************** Application Context instantiated! ******************");
+		
+		FacilityService facService = (FacilityService) context.getBean("facilityService");
 		
 		//set up facilities for dummy data
-		Facility fact1 = new FacilityImpl();
-		FacilityDetail factDet1 = new FacilityDetailImpl();
+		Facility fact1 = (Facility) context.getBean("facility");
+		FacilityDetail factDet1 = (FacilityDetail) context.getBean("facilityDetail");
 		fact1.setFacilityID(1);
 		factDet1.setNumberOfRooms(2);
-		fact1.setDetailsAboutFacility(factDet1);
+		fact1.setFacilityDetail(factDet1);
 		
-		Facility fact3 = new FacilityImpl();
-		FacilityDetail factDet3 = new FacilityDetailImpl();
+		Facility fact3 = (Facility) context.getBean("facility");
+		FacilityDetail factDet3 = (FacilityDetail) context.getBean("facilityDetail");
 		fact3.setFacilityID(3);
 		factDet3.setNumberOfRooms(6);
-		fact3.setDetailsAboutFacility(factDet3);
+		fact3.setFacilityDetail(factDet3);
 		
-		Facility fact4 = new FacilityImpl();
-		FacilityDetail factDet4 = new FacilityDetailImpl();
+		Facility fact4 = (Facility) context.getBean("facility");
+		FacilityDetail factDet4 = (FacilityDetail) context.getBean("facilityDetail");
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
-		fact4.setDetailsAboutFacility(factDet4);
+		fact4.setFacilityDetail(factDet4);
 		
-		Facility fact7 = new FacilityImpl();
-		FacilityDetail factDet7 = new FacilityDetailImpl();
+		Facility fact7 = (Facility) context.getBean("facility");
+		FacilityDetail factDet7 = (FacilityDetail) context.getBean("facilityDetail");
 		fact7.setFacilityID(7);
 		factDet7.setNumberOfRooms(10);
-		fact7.setDetailsAboutFacility(factDet7);
+		fact7.setFacilityDetail(factDet7);
 		
 		
 		System.out.println("\nFacilityClient: *************** Instantiating a facility and its details *************************");
-        Facility fact = new FacilityImpl();;
+        Facility fact = (Facility) context.getBean("facility");
 		fact.setFacilityID(11);
-		FacilityDetail detail = new FacilityDetailImpl();
+		FacilityDetail detail = (FacilityDetail) context.getBean("facilityDetail");
 		detail.setName("IT Center");
 		detail.setNumberOfRooms(4);
 		//detail.setPhoneNumber(5550123);
-        fact.setDetailsAboutFacility(detail);
+        fact.setFacilityDetail(detail);
       
         //save facility information
         //Saving the newly created facility and its details
@@ -58,7 +65,7 @@ public class FacilityClient {
         
         System.out.println("\nFacilityClient: *************** Here is searched facility information *************************");
         System.out.println("\n\tFacility ID:   \t\t" + searchedFacility.getFacilityID());
-        FacilityDetail facilityDet = searchedFacility.getDetailsAboutFacility();
+        FacilityDetail facilityDet = searchedFacility.getFacilityDetail();
         System.out.println("\tInfo About Facility:  \t" + facilityDet.getName() + 
           		"\n\t\t\t\t Number of Rooms:" + facilityDet.getNumberOfRooms()); 
         if (facilityDet.getPhoneNumber() != 0) {
@@ -74,7 +81,7 @@ public class FacilityClient {
 		facService.addFacilityDetail(11, 3120136);
 		
 		Facility updatedFacility = facService.getFacilityInformation(11); 
-		FacilityDetail facilityNewDet = updatedFacility.getDetailsAboutFacility();
+		FacilityDetail facilityNewDet = updatedFacility.getFacilityDetail();
 		
 		System.out.println("\nFacilityClient: *************** Here is the updated facility information *************************");
         System.out.println("\n\tFacility ID:   \t\t" + updatedFacility.getFacilityID());
@@ -96,7 +103,7 @@ public class FacilityClient {
         System.out.println("\nFacilityClient: *************** An updated list of all the facilities *************************");
         List<Facility> listOfFacilities = facService.listFacilities();
         for (Facility fac : listOfFacilities) {
-        	FacilityDetail facDet = fac.getDetailsAboutFacility();
+        	FacilityDetail facDet = fac.getFacilityDetail();
         	System.out.println("\n\t" + facDet.getName() + " ID: " + fac.getFacilityID());
         }
         

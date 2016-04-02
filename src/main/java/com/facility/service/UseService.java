@@ -39,9 +39,9 @@ public class UseService {
 		//ensures the start and end data are valid and room number exists
 		if (facUse.getStartDate().isAfter(facUse.getEndDate())) {
 			System.out.println("Start date must be before end date.");
-		} else if (facUse.getRoomNumber() > fac.getDetailsAboutFacility().getNumberOfRooms()) {
+		} else if (facUse.getRoomNumber() > fac.getFacilityDetail().getNumberOfRooms()) {
 			System.out.println("Invalid room number. There are only " + 
-					fac.getDetailsAboutFacility().getNumberOfRooms() + 
+					fac.getFacilityDetail().getNumberOfRooms() + 
 					" rooms at this facility.");
 		} else {
 			try {
@@ -66,9 +66,9 @@ public class UseService {
 		//ensures the start and end data are valid, room number exists, and room isn't already in use at that time
 		if (facUse.getStartDate().isAfter(facUse.getEndDate())) {
 			System.out.println("Start date must be before end date.");
-		} else if (facUse.getRoomNumber() > fac.getDetailsAboutFacility().getNumberOfRooms()) {
+		} else if (facUse.getRoomNumber() > fac.getFacilityDetail().getNumberOfRooms()) {
 			System.out.println("Invalid room number. There are only " + 
-					fac.getDetailsAboutFacility().getNumberOfRooms() + 
+					fac.getFacilityDetail().getNumberOfRooms() + 
 					" rooms at this facility.");
 		} else if (isInUseDuringInterval(fac, facUse)) {
 			System.out.println("This room at the facility is already in use during this interval.");
@@ -108,7 +108,7 @@ public class UseService {
 		
 		try {
 			FacilityService facService = new FacilityService();
-			int totalRooms = fac.getDetailsAboutFacility().getNumberOfRooms();
+			int totalRooms = fac.getFacilityDetail().getNumberOfRooms();
 			int roomsAvailable = facService.requestAvailableCapacity(fac);
 			int roomsInUse = totalRooms - roomsAvailable;
 			return Math.round(((double)roomsInUse / totalRooms) * 100d)/100d;
@@ -125,9 +125,9 @@ public class UseService {
 		
 		try {
 			List<FacilityUse> usageList = listActualUsage(fac);
-			if (roomNumber > fac.getDetailsAboutFacility().getNumberOfRooms()) {
+			if (roomNumber > fac.getFacilityDetail().getNumberOfRooms()) {
 				System.out.println("Invalid room number. There are only " + 
-						fac.getDetailsAboutFacility().getNumberOfRooms() + " rooms at this facility.");
+						fac.getFacilityDetail().getNumberOfRooms() + " rooms at this facility.");
 			} else {
 				for (FacilityUse use : usageList) {
 					//if room number matches usage list (or usage list entry is for entire facility) 

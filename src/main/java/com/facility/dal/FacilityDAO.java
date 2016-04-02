@@ -99,7 +99,7 @@ public class FacilityDAO {
 		    	}
 		    }
 		      
-		    fac1.setDetailsAboutFacility(detail);
+		    fac1.setFacilityDetail(detail);
 		    
 		    //close to manage resources
 		    detRS.close();
@@ -136,11 +136,11 @@ public class FacilityDAO {
         	//Insert the facility_detail object
             String addStm = "INSERT INTO facility_detail(name, facility_id, number_of_rooms, phone) VALUES(?, ?, ?, ?)";
             addPst = con.prepareStatement(addStm);
-            addPst.setString(1, fac.getDetailsAboutFacility().getName());
+            addPst.setString(1, fac.getFacilityDetail().getName());
             addPst.setInt(2, fac.getFacilityID());  
-            addPst.setInt(3, fac.getDetailsAboutFacility().getNumberOfRooms());
-            if (fac.getDetailsAboutFacility().getPhoneNumber() != 0) {
-            	addPst.setInt(4, fac.getDetailsAboutFacility().getPhoneNumber());
+            addPst.setInt(3, fac.getFacilityDetail().getNumberOfRooms());
+            if (fac.getFacilityDetail().getPhoneNumber() != 0) {
+            	addPst.setInt(4, fac.getFacilityDetail().getPhoneNumber());
             } else {
             	addPst.setNull(4, java.sql.Types.INTEGER);
             }

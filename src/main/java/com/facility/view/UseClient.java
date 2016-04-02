@@ -1,10 +1,15 @@
 package com.facility.view;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.time.LocalDate;
 import java.util.List;
 
 import com.facility.base.*;
 import com.facility.service.FacilityService;
+import com.facility.service.MaintenanceService;
 import com.facility.service.UseService;
 import com.facility.use.FacilityUse;
 import com.facility.use.FacilityUseImpl;
@@ -14,33 +19,36 @@ public class UseClient {
 
 	public UseClient() throws Exception {
 		
-		UseService useService = new UseService();
-		FacilityService facilityService = new FacilityService();
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+        System.out.println("***************** Application Context instantiated! ******************");
+		
+	    UseService useService = (UseService) context.getBean("useService");
+	    FacilityService facilityService = (FacilityService) context.getBean("facilityService");
 		
 		//set up facilities for dummy data
 		Facility fact1 = new FacilityImpl();
 		FacilityDetail factDet1 = new FacilityDetailImpl();
 		fact1.setFacilityID(1);
 		factDet1.setNumberOfRooms(2);
-		fact1.setDetailsAboutFacility(factDet1);
+		fact1.setFacilityDetail(factDet1);
 		
 		Facility fact3 = new FacilityImpl();
 		FacilityDetail factDet3 = new FacilityDetailImpl();
 		fact3.setFacilityID(3);
 		factDet3.setNumberOfRooms(6);
-		fact3.setDetailsAboutFacility(factDet3);
+		fact3.setFacilityDetail(factDet3);
 		
 		Facility fact4 = new FacilityImpl();
 		FacilityDetail factDet4 = new FacilityDetailImpl();
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
-		fact4.setDetailsAboutFacility(factDet4);
+		fact4.setFacilityDetail(factDet4);
 		
 		Facility fact7 = new FacilityImpl();
 		FacilityDetail factDet7 = new FacilityDetailImpl();
 		fact7.setFacilityID(7);
 		factDet7.setNumberOfRooms(10);
-		fact7.setDetailsAboutFacility(factDet7);
+		fact7.setFacilityDetail(factDet7);
 		
 		System.out.println("\nUseClient: *************** Listing the inspections at a facility *************************");
 		
@@ -59,7 +67,7 @@ public class UseClient {
 		FacilityDetail factDet = new FacilityDetailImpl();
 		factDet.setNumberOfRooms(6);
 		factDet.setName("Test Facility");
-		fact12.setDetailsAboutFacility(factDet);
+		fact12.setFacilityDetail(factDet);
 		facilityService.addNewFacility(fact12);
 		factUse.setStartDate(LocalDate.of(2015, 12, 1));
 		factUse.setEndDate(LocalDate.of(2017, 12, 1));

@@ -86,7 +86,7 @@ public class FacilityService {
 				}
 			}
 			
-			return fac.getDetailsAboutFacility().getNumberOfRooms() - roomsInUse;
+			return fac.getFacilityDetail().getNumberOfRooms() - roomsInUse;
 			
 	    } catch (Exception se) {
 	      System.err.println("UseService: Threw an Exception requesting the available capacity of a facility.");

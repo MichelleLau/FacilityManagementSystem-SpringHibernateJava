@@ -7,16 +7,16 @@ package com.facility.base;
 public class FacilityImpl implements Facility {
 	
 	private int facilityID;
-	private FacilityDetail detailsAboutFacility;
+	private FacilityDetail facilityDetail;
 		
 	public FacilityImpl() {}
 	
-	public FacilityDetail getDetailsAboutFacility() {
-		return detailsAboutFacility;
+	public FacilityDetail getFacilityDetail() {
+		return facilityDetail;
 	}
 
-	public void setDetailsAboutFacility(FacilityDetail detailsAboutFacility) {
-		this.detailsAboutFacility = detailsAboutFacility;
+	public void setFacilityDetail(FacilityDetail facilityDetail) {
+		this.facilityDetail = facilityDetail;
 	}
 
 	public void setFacilityID(int facilityID) {
@@ -26,6 +26,7 @@ public class FacilityImpl implements Facility {
 	public int getFacilityID() {
 		return facilityID;
 	}
+
 
 	
 }

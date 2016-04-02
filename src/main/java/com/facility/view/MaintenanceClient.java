@@ -2,40 +2,48 @@ package com.facility.view;
 
 import java.util.List;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.facility.base.*;
 import com.facility.maintenance.Maintenance;
+import com.facility.service.FacilityService;
 import com.facility.service.MaintenanceService;
 
 public class MaintenanceClient {
 
 	public MaintenanceClient() throws Exception {
 		
-		MaintenanceService maintenanceService = new MaintenanceService();
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+        System.out.println("***************** Application Context instantiated! ******************");
+		
+        MaintenanceService maintenanceService = (MaintenanceService) context.getBean("maintenanceService");
 		
 		//set up facilities for dummy data
 		Facility fact1 = new FacilityImpl();
 		FacilityDetail factDet1 = new FacilityDetailImpl();
 		fact1.setFacilityID(1);
 		factDet1.setNumberOfRooms(2);
-		fact1.setDetailsAboutFacility(factDet1);
+		fact1.setFacilityDetail(factDet1);
 		
 		Facility fact3 = new FacilityImpl();
 		FacilityDetail factDet3 = new FacilityDetailImpl();
 		fact3.setFacilityID(3);
 		factDet3.setNumberOfRooms(6);
-		fact3.setDetailsAboutFacility(factDet3);
+		fact3.setFacilityDetail(factDet3);
 		
 		Facility fact4 = new FacilityImpl();
 		FacilityDetail factDet4 = new FacilityDetailImpl();
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
-		fact4.setDetailsAboutFacility(factDet4);
+		fact4.setFacilityDetail(factDet4);
 		
 		Facility fact7 = new FacilityImpl();
 		FacilityDetail factDet7 = new FacilityDetailImpl();
 		fact7.setFacilityID(7);
 		factDet7.setNumberOfRooms(10);
-		fact7.setDetailsAboutFacility(factDet7);
+		fact7.setFacilityDetail(factDet7);
 		
 		
 		System.out.println("\nMaintenanceClient: *********** Creating new facility maintenance request *****************");
