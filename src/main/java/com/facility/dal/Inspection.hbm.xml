@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.facility.use">
+	<class name="InspectionImpl" table="inspection">
+		<id name="inspectionID" column="inspection_id"/>
+		<property name="inspection_type" type="string" column="inspection_type"/>
+		<property name="inspection_detail" type="string" column="inspection_detail"/>
+		<property name="unit" type="string" column="unit"/>	
+		
+		<many-to-one name="facility_ID" class="com.facility.base.Facility" 
+			column="facility_id" unique="true" not-null="true"
+			cascade="all"/>
+	</class>
+</hibernate-mapping>
