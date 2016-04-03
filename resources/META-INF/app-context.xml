@@ -18,16 +18,8 @@
 		<property name="facilityDetail" ref="facilityDetail" />
 	</bean>
 	
-	<bean id="facilityService" class="com.facility.service.FacilityService" scope="prototype">
-		<!-- <property name="facility" ref="facility" /> -->
-	</bean>
-	
-	<bean id="useService" class="com.facility.service.UseService" scope="prototype">
-		<!-- <property name="facilityUse" ref="facilityUse" /> -->
-	</bean>
-	
-	<bean id="maintenanceService" class="com.facility.service.MaintenanceService" scope="prototype">
-		<!-- <property name="maintenance" ref="maintenance" /> -->
-	</bean>
+	<bean id="facilityService" class="com.facility.service.FacilityService" scope="prototype"/>
+	<bean id="useService" class="com.facility.service.UseService" scope="prototype"/>
+	<bean id="maintenanceService" class="com.facility.service.MaintenanceService" scope="prototype"/>
 	
 </beans>
