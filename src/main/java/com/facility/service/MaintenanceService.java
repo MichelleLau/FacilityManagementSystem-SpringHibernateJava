@@ -41,7 +41,6 @@ public class MaintenanceService {
 	 */
 	public void scheduleMaintenance(Maintenance maintRequest) {
 		try {
-			//maintenanceDAO.scheduleMaintenance(maintRequest);
 			maintenanceHibernateDAO.scheduleMaintenanceAdd(maintRequest);
 			maintenanceHibernateDAO.scheduleMaintenanceDelete(maintRequest);
 	    } catch (Exception se) {
@@ -109,8 +108,8 @@ public class MaintenanceService {
 	public List<Maintenance> listFacilityProblems(Facility fac) {
 		List<Maintenance> facilityProblems = new ArrayList<Maintenance>();
 		try {
-			facilityProblems.addAll(maintenanceDAO.listMaintRequests(fac));
-			facilityProblems.addAll(maintenanceDAO.listMaintenance(fac));
+			facilityProblems.addAll(maintenanceHibernateDAO.listMaintRequests(fac));
+			facilityProblems.addAll(maintenanceHibernateDAO.listMaintenance(fac));
 			
 			//sort problems by cost
 			Collections.sort(facilityProblems, new Comparator<Maintenance>() {
@@ -138,7 +137,7 @@ public class MaintenanceService {
 	public int calcDownTimeForFacility(Facility fac) {
 		int daysOfDownTime = 0;
 		try {
-			int numberOfCompletedMaintItems = maintenanceDAO.listMaintenance(fac).size();
+			int numberOfCompletedMaintItems = maintenanceHibernateDAO.listMaintenance(fac).size();
 			daysOfDownTime = numberOfCompletedMaintItems * 7;
 		} catch (Exception se) {
 			System.err.println("MaintenanceService: Threw an Exception calculating "
