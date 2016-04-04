@@ -107,11 +107,11 @@ public class MaintenanceClient {
 		System.out.println("Facility #" + fact7.getFacilityID() + " was down for maintenance for " + downTime + " days total, "
 				+ "assuming each completed maintenance request took 7 days to complete.");
 	
-/*		System.out.println("\nMaintenanceClient: *********** Calculate the problem rate for a facility *****************");
-		double problemRate = maintenanceService.calcProblemRateForFacility(fact3) * 100;
-		System.out.print("\nThe problem rate at Facility #" + fact3.getFacilityID() + " is ");
+		System.out.println("\nMaintenanceClient: *********** Calculate the problem rate for a facility *****************");
+		double problemRate = maintenanceService.calcProblemRateForFacility(fact7) * 100;
+		System.out.print("\nThe problem rate at Facility #" + fact7.getFacilityID() + " is ");
 		System.out.format("%.2f", problemRate);
-		System.out.print("%.");*/
+		System.out.print("%.");
 				
 	}
 	

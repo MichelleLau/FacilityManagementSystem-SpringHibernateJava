@@ -56,7 +56,6 @@ public class MaintenanceService {
 	 */
 	public int calcMaintenanceCostForFacility(Facility fac) {
 		try {
-			//return maintenanceDAO.calcMaintenanceCostForFacility(fac);
 			return maintenanceHibernateDAO.calcMaintenanceCostForFacility(fac);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw an Exception calculating "

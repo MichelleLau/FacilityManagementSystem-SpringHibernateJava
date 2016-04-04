@@ -115,10 +115,10 @@ public class FacilityClient {
         }
         
 
-/*        System.out.println("\nFacilityClient: *************** Request available capacity of a facility *************************");
+        System.out.println("\nFacilityClient: *************** Request available capacity of a facility *************************");
         //uses sample data
-        int roomsAvail = facService.requestAvailableCapacity(fact4);
-		System.out.println("There are " + roomsAvail + " rooms currently available at Facility #" + fact4.getFacilityID() + ".");
-        */
+        int roomsAvail = facService.requestAvailableCapacity(fact1);
+		System.out.println("There are " + roomsAvail + " room(s) currently available at Facility #" + fact1.getFacilityID() + ".");
+        
 	}
 }

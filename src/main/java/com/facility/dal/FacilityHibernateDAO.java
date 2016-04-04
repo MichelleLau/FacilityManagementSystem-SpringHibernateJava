@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.facility.base.*;
+import com.facility.use.FacilityUse;
 
 public class FacilityHibernateDAO {
 	
@@ -68,6 +69,27 @@ public class FacilityHibernateDAO {
 		session.beginTransaction();
 		session.delete(fac);
 		session.getTransaction().commit();
+	}
+	
+	public void removeFacilityUse(int facilityID) {
+		try {
+			System.out.println("*************** Removing facility from use table ...  " );
+			Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			
+			//System.out.println("*************** Hibernate session is created ..................\n" + session.toString());
+			
+			Query getFacilityQuery = session.createQuery("Delete from FacilityUseImpl where facility_id =" + facilityID);
+			
+			System.out.println("*************** Remove Query is ....>>\n" + getFacilityQuery.toString()); 
+			getFacilityQuery.executeUpdate();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			System.err.println("FacilityHibernateDAO: Threw an Exception removing "
+			   		+ "from use table.");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Facility> listFacilities() {

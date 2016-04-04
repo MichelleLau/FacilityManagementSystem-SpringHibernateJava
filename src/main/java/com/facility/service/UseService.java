@@ -46,7 +46,7 @@ public class UseService {
 					" rooms at this facility.");
 		} else {
 			try {
-				return useHibernateDAO.isInUseDuringInterval(facUse);
+				return useDAO.isInUseDuringInterval(facUse);
 		    } catch (Exception se) {
 		      System.err.println("UseService: Threw an Exception checking if facility is in use during interval.");
 		      System.err.println(se.getMessage());
@@ -75,8 +75,7 @@ public class UseService {
 			System.out.println("This room at the facility is already in use during this interval.");
 		} else {
 			try {
-				//useDAO.assignFacilityToUse(facUse);
-				useHibernateDAO.assignFacilityToUse(facUse);
+				useDAO.assignFacilityToUse(facUse);
 		    } catch (Exception se) {
 		      System.err.println("UseService: Threw an Exception assigning a facility to use.");
 		      System.err.println(se.getMessage());

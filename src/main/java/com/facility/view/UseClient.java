@@ -117,7 +117,7 @@ public class UseClient {
 		
 
 		//list actual usage that has been assigned to a particular facility
-/*		System.out.println("\nUseClient: ************ Listing the usage at a facility before being vacated***************");
+		System.out.println("\nUseClient: ************ Listing the usage at a facility before being vacated***************");
 		
 		//uses sample dummy data of usage in database
 		List<FacilityUse> usageList = useService.listActualUsage(fact12);
@@ -162,13 +162,13 @@ public class UseClient {
 		
 		//calculate current usage rate of a facility
 		System.out.println("\nUseClient: ************ Calculating the current usage rate at a facility ***************");
-		int usageRate = (int) (useService.calcUsageRate(fact3) * 100);
-		System.out.println("Current usage at Facility #" + fact3.getFacilityID() + " is " + usageRate + "%.");
+		int usageRate = (int) (useService.calcUsageRate(fact7) * 100);
+		System.out.println("Current usage at Facility #" + fact7.getFacilityID() + " is " + usageRate + "%.");
 		
 		
 		//remove this new facility 12 for next time UseClient is run
-		facilityService.removeFacility(12);
-*/
+		facilityService.removeFacility(fact12);
+
 	}
 	
 	

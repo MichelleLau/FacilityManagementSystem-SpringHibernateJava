@@ -39,8 +39,8 @@ public class FacilityService {
 	public void removeFacility(Facility fac) {
 		
 		try {
+			facilityHibernateDAO.removeFacilityUse(fac.getFacilityID());
 			facilityHibernateDAO.removeFacility(fac);
-			//facDAO.removeFacility(id);
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception removing facility.");
 	      System.err.println(se.getMessage());
@@ -58,7 +58,6 @@ public class FacilityService {
 	
 	public List<Facility> listFacilities() {
 		try {
-			//return facDAO.listFacilities();
 			return facilityHibernateDAO.listFacilities();
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception retrieving list of facilities.");
