@@ -10,6 +10,7 @@ import com.facility.base.*;
 public class UseService {
 
 	private UseDAO useDAO = new UseDAO();
+	private FacilityUseHibernateDAO useHibernateDAO = new FacilityUseHibernateDAO();
 	
 	/***
 	 * List all the inspections at a particular facility.
@@ -19,9 +20,8 @@ public class UseService {
 	 */
 	public List<Inspection> listInspections(Facility fac) {
 		try {
-			//FacilityUseHibernateDAO useHibernateDAO = new FacilityUseHibernateDAO();
-			//return useHibernateDAO.listInspections(fac);
-			return useDAO.listInspections(fac);
+			return useHibernateDAO.listInspections(fac);
+			//return useDAO.listInspections(fac);
 	    } catch (Exception se) {
 	      System.err.println("UseService: Threw an Exception retrieving list of inspections.");
 	      System.err.println(se.getMessage());

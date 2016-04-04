@@ -84,18 +84,17 @@ public class FacilityClient {
         
         		
         
-        /*//add optional phone number to facility detail
-		facService.addFacilityDetail(11, 3120136);
+        //add optional phone number to facility detail
+		facService.addFacilityDetail(fact.getFacilityID(), 3120136);
 		
-		Facility updatedFacility = facService.getFacilityInformation(11); 
-		FacilityDetail facilityNewDet = updatedFacility.getFacilityDetail();
+		FacilityDetail updatedFacilityDetail = facService.getFacilityInformation(fact.getFacilityID());
 		
 		System.out.println("\nFacilityClient: *************** Here is the updated facility information *************************");
-        System.out.println("\n\tFacility ID:   \t\t" + updatedFacility.getFacilityID());
-        System.out.println("\tInfo About Facility:  \t" + facilityNewDet.getName() + 
-          		"\n\t\t\t\t Number of Rooms: " + facilityNewDet.getNumberOfRooms()); 
-        if (facilityNewDet.getPhoneNumber() != 0) {
-        	System.out.print("\t\t\t\t Phone Number: " + facilityNewDet.getPhoneNumber() +
+        System.out.println("\n\tFacility ID:   \t\t" + updatedFacilityDetail.getFacilityID());
+        System.out.println("\tInfo About Facility:  \t" + updatedFacilityDetail.getName() + 
+          		"\n\t\t\t\t Number of Rooms: " + updatedFacilityDetail.getNumberOfRooms()); 
+        if (updatedFacilityDetail.getPhoneNumber() != 0) {
+        	System.out.print("\t\t\t\t Phone Number: " + updatedFacilityDetail.getPhoneNumber() +
         	"\n\t\t\t\t" + "\n");
         } else {
         	System.out.print("\t\t\t\t Phone Number: unlisted" +
@@ -104,9 +103,10 @@ public class FacilityClient {
 		
         
 		System.out.println("\nFacilityClient: *************** Remove a facility from the database *************************");
-        facService.removeFacility(11);
+        facService.removeFacility(fact);
         System.out.println("************ Facility Removed ************");
         
+
         System.out.println("\nFacilityClient: *************** An updated list of all the facilities *************************");
         List<Facility> listOfFacilities = facService.listFacilities();
         for (Facility fac : listOfFacilities) {
@@ -115,7 +115,7 @@ public class FacilityClient {
         }
         
 
-        System.out.println("\nFacilityClient: *************** Request available capacity of a facility *************************");
+/*        System.out.println("\nFacilityClient: *************** Request available capacity of a facility *************************");
         //uses sample data
         int roomsAvail = facService.requestAvailableCapacity(fact4);
 		System.out.println("There are " + roomsAvail + " rooms currently available at Facility #" + fact4.getFacilityID() + ".");

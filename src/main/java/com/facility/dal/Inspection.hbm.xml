@@ -5,14 +5,11 @@
 
 <hibernate-mapping package="com.facility.use">
 	<class name="InspectionImpl" table="inspection">
-		<id name="inspectionID" column="inspection_id" >
+		<id name="inspectionID" column="inspection_id">
 			<generator class="increment"/>
 		</id>
 		<property name="inspection_type" type="string" column="inspection_type"/>
 		<property name="inspection_detail" type="string" column="inspection_detail"/>
-		
-		<!-- <many-to-one name="facility_ID" class="com.facility.base.FacilityImpl" 
-			column="facility_id" unique="false" cascade="all"/> -->
-		<one-to-one name="facility_ID" class="com.facility.base.FacilityImpl" cascade="save-update, delete"/>
+		<many-to-one name="facility" class="com.facility.base.FacilityImpl" column="facility_id" not-null="true"/>
 	</class>
 </hibernate-mapping>

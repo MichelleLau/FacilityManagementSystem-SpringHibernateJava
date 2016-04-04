@@ -23,6 +23,6 @@
 		<!-- Mapping resource configuration files -->
  		<mapping resource="com/facility/dal/Facility.hbm.xml"/> 
  		<mapping resource="com/facility/dal/FacilityDetail.hbm.xml"/>
- 		<!-- <mapping resource="com/facility/dal/Inspection.hbm.xml"/> -->
+ 		<mapping resource="com/facility/dal/Inspection.hbm.xml"/>
  	</session-factory>
  </hibernate-configuration>

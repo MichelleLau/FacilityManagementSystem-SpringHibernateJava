@@ -7,9 +7,6 @@
 	<class name="FacilityDetailImpl" table="facility_detail">
 		<id name="facilityID" type="int" >
 			<column name="facility_id" />
-			<!-- <generator class="foreign">
-				<param name="property">facility</param>
-			</generator> -->
 		</id>
 		<property name="name" type="string" column="name"/>
 		<property name="numberOfRooms" type="int" column="number_of_rooms"/>

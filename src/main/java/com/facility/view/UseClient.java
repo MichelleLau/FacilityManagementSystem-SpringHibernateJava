@@ -44,23 +44,25 @@ public class UseClient {
 		factDet4.setNumberOfRooms(5);
 		fact4.setFacilityDetail(factDet4);*/
 		
-		Facility fact7 = new FacilityImpl();
-		FacilityDetail factDet7 = new FacilityDetailImpl();
+		Facility fact7 = (Facility) context.getBean("facility");
+		FacilityDetail factDet7 = (FacilityDetail) context.getBean("facilityDetail");
 		fact7.setFacilityID(7);
+		factDet7.setFacilityID(7);
+		factDet7.setFacility(fact7);
 		factDet7.setNumberOfRooms(10);
 		fact7.setFacilityDetail(factDet7);
 		
 		System.out.println("\nUseClient: *************** Listing the inspections at a facility *************************");
 		
 		//uses sample dummy data for inspections in database
-		/*System.out.println("\n\tInspections At Facility #" + fact7.getFacilityID());
+		System.out.println("\n\tInspections At Facility #" + fact7.getFacilityID());
 		for (Inspection inspec : useService.listInspections(fact7)) {
 			System.out.println("\t" + inspec.getInspection_type() +
 					" status: " + inspec.getInspection_detail());
 		}
 		
 		//set up new facility 12 to be checked if it's in use during an interval
-		FacilityUse factUse = new FacilityUseImpl();
+/*		FacilityUse factUse = new FacilityUseImpl();
 		Facility fact12 = new FacilityImpl();
 		fact12.setFacilityID(12);
 		factUse.setFacilityID(12);

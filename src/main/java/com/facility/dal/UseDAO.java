@@ -40,7 +40,7 @@ public class UseDAO {
 		    	Inspection inspec = new InspectionImpl();
 		    	inspec.setInspection_type(useRS.getString("inspection_type"));
 		    	inspec.setInspection_detail(useRS.getString("inspection_detail"));
-		    	inspec.setFacility_ID(fac.getFacilityID());
+		    	inspec.setFacilityID(fac.getFacilityID());
 		    	listOfInspec.add(inspec);
 		    }
 		    

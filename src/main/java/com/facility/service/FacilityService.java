@@ -17,7 +17,6 @@ public class FacilityService {
 	//Insert a new facility in the DB
 	public void addNewFacility(Facility facility) {
 		try {
-			//facDAO.addNewFacility(facility);
 			facilityHibernateDAO.addNewFacility(facility);
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception adding new facility.");
@@ -37,10 +36,11 @@ public class FacilityService {
 		return null;
 	}
 	
-	public void removeFacility(int id) {
+	public void removeFacility(Facility fac) {
 		
 		try {
-			facDAO.removeFacility(id);
+			facilityHibernateDAO.removeFacility(fac);
+			//facDAO.removeFacility(id);
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception removing facility.");
 	      System.err.println(se.getMessage());
@@ -49,7 +49,7 @@ public class FacilityService {
 	
 	public void addFacilityDetail(int ID, int phoneNumber) {
 		try {
-			facDAO.addFacilityDetail(ID, phoneNumber);
+			facilityHibernateDAO.addFacilityDetail(ID, phoneNumber);
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception updating phone in facility_detail.");
 	      System.err.println(se.getMessage());
@@ -58,7 +58,8 @@ public class FacilityService {
 	
 	public List<Facility> listFacilities() {
 		try {
-			return facDAO.listFacilities();
+			//return facDAO.listFacilities();
+			return facilityHibernateDAO.listFacilities();
 	    } catch (Exception se) {
 	      System.err.println("FacilityService: Threw an Exception retrieving list of facilities.");
 	      System.err.println(se.getMessage());

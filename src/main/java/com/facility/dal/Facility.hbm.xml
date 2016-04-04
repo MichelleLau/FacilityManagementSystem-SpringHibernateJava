@@ -7,9 +7,8 @@
 	<class name="FacilityImpl" table="facility">
 		<id name="facilityID" type="int">
 			<column name="id" />
-			<!-- <generator class="native" /> -->
 		</id>
 		<one-to-one name="facilityDetail" class="com.facility.base.FacilityDetailImpl" 
-			cascade="save-update"></one-to-one> 
+			cascade="save-update, delete"></one-to-one> 
 	</class>
 </hibernate-mapping>

@@ -45,7 +45,58 @@ public class FacilityHibernateDAO {
 	}
 
 	public void addFacilityDetail(int ID, int phoneNumber) {
-
+		try {
+			System.out.println("*************** Adding facility details to Facility  " + ID);
+			Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			FacilityDetail facilityDetail = (FacilityDetail) session.get(FacilityDetailImpl.class, ID);
+			facilityDetail.setPhoneNumber(phoneNumber);
+			session.update(facilityDetail);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			System.err.println("FacilityHibernateDAO: Threw an Exception updating "
+			   		+ "facility detail.");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeFacility(Facility fac) {
+		//removes from facility and facility_detail tables
+		System.out.println("*************** Deleting facility from DB with ID ...  " + fac.getFacilityID());
+		Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.delete(fac);
+		session.getTransaction().commit();
+	}
+	
+	public List<Facility> listFacilities() {
+		try {
+			System.out.println("*************** Retrieving list of all facilities ...  " );
+			Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			
+			//System.out.println("*************** Hibernate session is created ..................\n" + session.toString());
+			
+			Query getFacilityQuery = session.createQuery("From FacilityImpl");
+			
+			System.out.println("*************** Retrieve Query is ....>>\n" + getFacilityQuery.toString()); 
+			
+			List facilities = getFacilityQuery.list();
+			System.out.println("Getting Facilities using HQL. \n");
+			
+			
+			session.getTransaction().commit();
+			return facilities;
+		} catch (Exception e) {
+			System.err.println("FacilityHibernateDAO: Threw an Exception retreiving "
+			   		+ "list of facilities.");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 	
 }
+
