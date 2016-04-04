@@ -3,7 +3,7 @@ package com.facility.service;
 import java.util.List;
 import java.time.*;
 
-import com.facility.dal.UseDAO;
+import com.facility.dal.*;
 import com.facility.use.*;
 import com.facility.base.*;
 
@@ -19,6 +19,8 @@ public class UseService {
 	 */
 	public List<Inspection> listInspections(Facility fac) {
 		try {
+			//FacilityUseHibernateDAO useHibernateDAO = new FacilityUseHibernateDAO();
+			//return useHibernateDAO.listInspections(fac);
 			return useDAO.listInspections(fac);
 	    } catch (Exception se) {
 	      System.err.println("UseService: Threw an Exception retrieving list of inspections.");

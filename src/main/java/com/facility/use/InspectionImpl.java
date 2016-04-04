@@ -2,11 +2,28 @@ package com.facility.use;
 
 public class InspectionImpl implements Inspection {
 
+	private int inspectionID;
 	private int facility_ID;
 	private String inspection_type;
 	private String inspection_detail;
 	
 	public InspectionImpl() {}
+
+	public int getInspectionID() {
+		return inspectionID;
+	}
+
+	public void setInspectionID(int inspectionID) {
+		this.inspectionID = inspectionID;
+	}
+	
+	public int getFacility_ID() {
+		return facility_ID;
+	}
+
+	public void setFacility_ID(int facility_ID) {
+		this.facility_ID = facility_ID;
+	}
 
 	public String getInspection_type() {
 		return inspection_type;
@@ -24,12 +41,4 @@ public class InspectionImpl implements Inspection {
 		this.inspection_detail = inspection_detail;
 	}
 
-	public int getFacility_ID() {
-		return facility_ID;
-	}
-
-	public void setFacility_ID(int facility_ID) {
-		this.facility_ID = facility_ID;
-	}
-	
 }

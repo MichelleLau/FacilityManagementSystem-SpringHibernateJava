@@ -23,10 +23,12 @@ public class FacilityClient {
 		Facility fact1 = (Facility) context.getBean("facility");
 		FacilityDetail factDet1 = (FacilityDetail) context.getBean("facilityDetail");
 		fact1.setFacilityID(1);
+		factDet1.setFacilityID(1);
+		factDet1.setFacility(fact1);
 		factDet1.setNumberOfRooms(2);
 		fact1.setFacilityDetail(factDet1);
 		
-		Facility fact3 = (Facility) context.getBean("facility");
+/*		Facility fact3 = (Facility) context.getBean("facility");
 		FacilityDetail factDet3 = (FacilityDetail) context.getBean("facilityDetail");
 		fact3.setFacilityID(3);
 		factDet3.setNumberOfRooms(6);
@@ -44,40 +46,45 @@ public class FacilityClient {
 		factDet7.setNumberOfRooms(10);
 		fact7.setFacilityDetail(factDet7);
 		
-		
+*/	
 		System.out.println("\nFacilityClient: *************** Instantiating a facility and its details *************************");
         Facility fact = (Facility) context.getBean("facility");
 		fact.setFacilityID(11);
 		FacilityDetail detail = (FacilityDetail) context.getBean("facilityDetail");
+		detail.setFacility(fact);
 		detail.setName("IT Center");
 		detail.setNumberOfRooms(4);
+		detail.setFacilityID(11);
 		//detail.setPhoneNumber(5550123);
-        fact.setFacilityDetail(detail);
+        fact.setFacilityDetail(detail); 
       
         //save facility information
         //Saving the newly created facility and its details
         facService.addNewFacility(fact);
         System.out.println("FacilityClient: *************** Facility is inserted in Facility Database *************************");
+        
+        
 		
         System.out.println("FacilityClient: *************** Trying to get information about this facility in the database ***************");
         
-        Facility searchedFacility = facService.getFacilityInformation(11); 
+        FacilityDetail searchedFacilityDetail = facService.getFacilityInformation(fact.getFacilityID()); 
+        
         
         System.out.println("\nFacilityClient: *************** Here is searched facility information *************************");
-        System.out.println("\n\tFacility ID:   \t\t" + searchedFacility.getFacilityID());
-        FacilityDetail facilityDet = searchedFacility.getFacilityDetail();
-        System.out.println("\tInfo About Facility:  \t" + facilityDet.getName() + 
-          		"\n\t\t\t\t Number of Rooms:" + facilityDet.getNumberOfRooms()); 
-        if (facilityDet.getPhoneNumber() != 0) {
-        	System.out.print("\t\t\t\t Phone Number: " + facilityDet.getPhoneNumber() +
+        System.out.println("\n\tFacility ID:   \t\t" + searchedFacilityDetail.getFacilityID());
+        System.out.println("\tInfo About Facility:  \t" + searchedFacilityDetail.getName() + 
+          		"\n\t\t\t\t Number of Rooms:" + searchedFacilityDetail.getNumberOfRooms()); 
+        if (searchedFacilityDetail.getPhoneNumber() != 0) {
+        	System.out.print("\t\t\t\t Phone Number: " + searchedFacilityDetail.getPhoneNumber() +
         	"\n\t\t\t\t" + "\n");
         } else {
         	System.out.print("\t\t\t\t Phone Number: unlisted" +
                 	"\n\t\t\t\t" + "\n");
         }
+        
         		
         
-        //add optional phone number to facility detail
+        /*//add optional phone number to facility detail
 		facService.addFacilityDetail(11, 3120136);
 		
 		Facility updatedFacility = facService.getFacilityInformation(11); 
@@ -112,6 +119,6 @@ public class FacilityClient {
         //uses sample data
         int roomsAvail = facService.requestAvailableCapacity(fact4);
 		System.out.println("There are " + roomsAvail + " rooms currently available at Facility #" + fact4.getFacilityID() + ".");
-        
+        */
 	}
 }

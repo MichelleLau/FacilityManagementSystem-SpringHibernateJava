@@ -3,8 +3,11 @@ package com.facility.base;
 public class FacilityDetailImpl implements FacilityDetail {
 
 	private String name;
+	private int facilityID;
 	private int numberOfRooms;
 	private int phoneNumber;
+	
+	private Facility facility;
 	
 	public FacilityDetailImpl() {}
 	
@@ -14,6 +17,14 @@ public class FacilityDetailImpl implements FacilityDetail {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getFacilityID() {
+		return facilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		this.facilityID = facilityID;
 	}
 
 	public int getNumberOfRooms() {
@@ -30,6 +41,14 @@ public class FacilityDetailImpl implements FacilityDetail {
 	
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
 	}
 
 }

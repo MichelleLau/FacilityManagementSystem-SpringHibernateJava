@@ -25,7 +25,7 @@ public class UseClient {
 	    UseService useService = (UseService) context.getBean("useService");
 	    FacilityService facilityService = (FacilityService) context.getBean("facilityService");
 		
-		//set up facilities for dummy data
+/*		//set up facilities for dummy data
 		Facility fact1 = new FacilityImpl();
 		FacilityDetail factDet1 = new FacilityDetailImpl();
 		fact1.setFacilityID(1);
@@ -42,7 +42,7 @@ public class UseClient {
 		FacilityDetail factDet4 = new FacilityDetailImpl();
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
-		fact4.setFacilityDetail(factDet4);
+		fact4.setFacilityDetail(factDet4);*/
 		
 		Facility fact7 = new FacilityImpl();
 		FacilityDetail factDet7 = new FacilityDetailImpl();
@@ -53,7 +53,7 @@ public class UseClient {
 		System.out.println("\nUseClient: *************** Listing the inspections at a facility *************************");
 		
 		//uses sample dummy data for inspections in database
-		System.out.println("\n\tInspections At Facility #" + fact7.getFacilityID());
+		/*System.out.println("\n\tInspections At Facility #" + fact7.getFacilityID());
 		for (Inspection inspec : useService.listInspections(fact7)) {
 			System.out.println("\t" + inspec.getInspection_type() +
 					" status: " + inspec.getInspection_detail());
@@ -162,7 +162,7 @@ public class UseClient {
 		
 		//remove this new facility 12 for next time UseClient is run
 		facilityService.removeFacility(12);
-
+*/
 	}
 	
 	
