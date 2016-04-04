@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.facility.base.*;
-import com.facility.use.FacilityUse;
 
 public class FacilityHibernateDAO {
 	

@@ -7,7 +7,6 @@ import org.hibernate.Session;
 
 import com.facility.base.Facility;
 import com.facility.maintenance.*;
-import com.facility.use.Inspection;
 
 public class FacilityMaintenanceHibernateDAO {
 	public Maintenance makeFacilityMaintRequest(Facility fac, String maintenanceDetails, int cost) {

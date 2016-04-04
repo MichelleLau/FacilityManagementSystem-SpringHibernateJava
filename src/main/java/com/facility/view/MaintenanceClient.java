@@ -2,13 +2,11 @@ package com.facility.view;
 
 import java.util.List;
 
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.facility.base.*;
 import com.facility.maintenance.Maintenance;
-import com.facility.service.FacilityService;
 import com.facility.service.MaintenanceService;
 
 public class MaintenanceClient {

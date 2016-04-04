@@ -1,6 +1,5 @@
 package com.facility.view;
 
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,10 +8,8 @@ import java.util.List;
 
 import com.facility.base.*;
 import com.facility.service.FacilityService;
-import com.facility.service.MaintenanceService;
 import com.facility.service.UseService;
 import com.facility.use.FacilityUse;
-import com.facility.use.FacilityUseImpl;
 import com.facility.use.Inspection;
 
 public class UseClient {

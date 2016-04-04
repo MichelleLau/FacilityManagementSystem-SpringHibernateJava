@@ -10,7 +10,6 @@ import com.facility.base.*;
 
 public class FacilityService {
 	
-	private FacilityDAO facDAO = new FacilityDAO();
 	private UseDAO useDAO = new UseDAO();
 	private FacilityHibernateDAO facilityHibernateDAO = new FacilityHibernateDAO();
 	

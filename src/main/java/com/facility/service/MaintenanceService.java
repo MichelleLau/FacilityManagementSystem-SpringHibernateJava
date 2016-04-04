@@ -13,7 +13,6 @@ import com.facility.maintenance.Maintenance;
 
 public class MaintenanceService {
 
-	private MaintenanceDAO maintenanceDAO = new MaintenanceDAO();
 	private FacilityMaintenanceHibernateDAO maintenanceHibernateDAO = new FacilityMaintenanceHibernateDAO();
 	
 	/***
