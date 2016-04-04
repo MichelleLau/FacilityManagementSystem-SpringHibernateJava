@@ -57,11 +57,11 @@ public class MaintenanceClient {
 		/*System.out.println("\nMaintenanceClient: *********** Scheduling this maintenance request *****************");
 		maintenanceService.scheduleMaintenance(maintenance);
 		System.out.println("\nMaintenanceClient: *********** Maintenance request scheduled *****************");
-		
+*/		
 		System.out.println("\nMaintenanceClient: *********** Calculate total maintenance cost of a facility *****************");
-		int totalCost = maintenanceService.calcMaintenanceCostForFacility(fact1);
-		System.out.println("The total cost of maintenance already completed at Facility #" + fact1.getFacilityID() + " is $" + totalCost + ".");
-		*/
+		int totalCost = maintenanceService.calcMaintenanceCostForFacility(fact7);
+		System.out.println("The total cost of maintenance already completed at Facility #" + fact7.getFacilityID() + " is $" + totalCost + ".");
+		
 		
 		//uses sample data to list maintenance requests, formatted as a table
 		System.out.println("\nMaintenanceClient: *********** List current maintenance requests at a facility *****************");

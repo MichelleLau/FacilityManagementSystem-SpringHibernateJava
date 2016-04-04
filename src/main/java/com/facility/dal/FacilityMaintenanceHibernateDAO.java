@@ -77,4 +77,27 @@ public class FacilityMaintenanceHibernateDAO {
 		return null;
 	}
 	
+	public int calcMaintenanceCostForFacility(Facility fac) {
+		try {
+			System.out.println("*************** Calculating maintenance cost for Facility ...  " + fac.getFacilityID());
+			Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			
+			//System.out.println("*************** Hibernate session is created ..................\n" + session.toString());
+			
+			Query calcMaintCostQuery = session.createQuery("select sum(cost) as int from maintenance where facility_ID =" + fac.getFacilityID());		
+			
+			System.out.println("*************** Retrieve Query is ....>>\n" + calcMaintCostQuery.toString()); 
+			
+			List<Long> cost = calcMaintCostQuery.list();
+			session.getTransaction().commit();
+			return cost.get(0).intValue();
+		} catch (Exception e) {
+			System.err.println("UseHibernateDAO: Threw an Exception calculating "
+			   		+ "cost of maintenance.");
+			   System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

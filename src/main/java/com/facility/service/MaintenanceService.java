@@ -55,7 +55,8 @@ public class MaintenanceService {
 	 */
 	public int calcMaintenanceCostForFacility(Facility fac) {
 		try {
-			return maintenanceDAO.calcMaintenanceCostForFacility(fac);
+			//return maintenanceDAO.calcMaintenanceCostForFacility(fac);
+			return maintenanceHibernateDAO.calcMaintenanceCostForFacility(fac);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw an Exception calculating "
 	      		+ "maintenance cost for facility.");
@@ -88,7 +89,6 @@ public class MaintenanceService {
 	 */
 	public List<Maintenance> listMaintenance(Facility fac) {
 		try {
-			//return maintenanceDAO.listMaintenance(fac);
 			return maintenanceHibernateDAO.listMaintenance(fac);
 		} catch (Exception se) {
 			System.err.println("MaintenanceService: Threw an Exception listing "
