@@ -27,6 +27,22 @@ public class FacilityMaintenanceHibernateDAO {
 		return maint;
 	}
 	
+	public void scheduleMaintenanceAdd(Maintenance maintRequest) {
+		System.out.println("*************** Adding maintenance to DB with ID ...  " + maintRequest.getFacilityID());
+		Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save("maintenance", maintRequest);
+		session.getTransaction().commit();
+	}
+	
+	public void scheduleMaintenanceDelete(Maintenance maintRequest) {
+		System.out.println("*************** Removing maintenance request from DB with ID ...  " + maintRequest.getFacilityID());
+		Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.delete("maint_request", maintRequest);
+		session.getTransaction().commit();
+	}
+	
 	public List<Maintenance> listMaintRequests(Facility fac) {
 		try {
 			System.out.println("*************** Retrieving a list of maintenance requests for Facility ...  " + fac.getFacilityID());

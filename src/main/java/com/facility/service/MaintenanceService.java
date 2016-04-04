@@ -41,7 +41,9 @@ public class MaintenanceService {
 	 */
 	public void scheduleMaintenance(Maintenance maintRequest) {
 		try {
-			maintenanceDAO.scheduleMaintenance(maintRequest);
+			//maintenanceDAO.scheduleMaintenance(maintRequest);
+			maintenanceHibernateDAO.scheduleMaintenanceAdd(maintRequest);
+			maintenanceHibernateDAO.scheduleMaintenanceDelete(maintRequest);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw an Exception scheduling maintenance.");
 	      System.err.println(se.getMessage());
