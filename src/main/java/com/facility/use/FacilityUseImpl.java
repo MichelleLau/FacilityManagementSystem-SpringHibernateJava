@@ -6,13 +6,24 @@ import com.facility.base.Facility;
 
 public class FacilityUseImpl implements FacilityUse {
 	
+	private int useID;
 	private int facilityID;
 	private int roomNumber;
 	private LocalDate startDate;
 	private LocalDate endDate;
+	
+	private Facility facility;
 
 	public FacilityUseImpl() {}
 	
+	public int getUseID() {
+		return useID;
+	}
+
+	public void setUseID(int useID) {
+		this.useID = useID;
+	}
+
 	public int getFacilityID() {
 		return facilityID;
 	}
@@ -43,6 +54,14 @@ public class FacilityUseImpl implements FacilityUse {
 
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
+	}
+
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
 	}
 
 }

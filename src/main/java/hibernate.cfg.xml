@@ -24,5 +24,6 @@
  		<mapping resource="com/facility/dal/Facility.hbm.xml"/> 
  		<mapping resource="com/facility/dal/FacilityDetail.hbm.xml"/>
  		<mapping resource="com/facility/dal/Inspection.hbm.xml"/>
+ 		<mapping resource="com/facility/dal/Use.hbm.xml"/>
  	</session-factory>
  </hibernate-configuration>

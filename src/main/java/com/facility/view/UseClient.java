@@ -62,14 +62,18 @@ public class UseClient {
 		}
 		
 		//set up new facility 12 to be checked if it's in use during an interval
-/*		FacilityUse factUse = new FacilityUseImpl();
-		Facility fact12 = new FacilityImpl();
+
+		Facility fact12 = (Facility) context.getBean("facility");
 		fact12.setFacilityID(12);
+		FacilityUse factUse = (FacilityUse) context.getBean("facilityUse");
 		factUse.setFacilityID(12);
-		FacilityDetail factDet = new FacilityDetailImpl();
+		FacilityDetail factDet = (FacilityDetail) context.getBean("facilityDetail");
 		factDet.setNumberOfRooms(6);
 		factDet.setName("Test Facility");
+		factDet.setFacilityID(12);
 		fact12.setFacilityDetail(factDet);
+		factDet.setFacility(fact12);
+		factUse.setFacility(fact12);
 		facilityService.addNewFacility(fact12);
 		factUse.setStartDate(LocalDate.of(2015, 12, 1));
 		factUse.setEndDate(LocalDate.of(2017, 12, 1));
@@ -113,7 +117,7 @@ public class UseClient {
 		
 
 		//list actual usage that has been assigned to a particular facility
-		System.out.println("\nUseClient: ************ Listing the usage at a facility before being vacated***************");
+/*		System.out.println("\nUseClient: ************ Listing the usage at a facility before being vacated***************");
 		
 		//uses sample dummy data of usage in database
 		List<FacilityUse> usageList = useService.listActualUsage(fact12);

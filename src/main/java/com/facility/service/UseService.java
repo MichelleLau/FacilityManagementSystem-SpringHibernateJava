@@ -21,7 +21,6 @@ public class UseService {
 	public List<Inspection> listInspections(Facility fac) {
 		try {
 			return useHibernateDAO.listInspections(fac);
-			//return useDAO.listInspections(fac);
 	    } catch (Exception se) {
 	      System.err.println("UseService: Threw an Exception retrieving list of inspections.");
 	      System.err.println(se.getMessage());
@@ -47,7 +46,7 @@ public class UseService {
 					" rooms at this facility.");
 		} else {
 			try {
-				return useDAO.isInUseDuringInterval(facUse);
+				return useHibernateDAO.isInUseDuringInterval(facUse);
 		    } catch (Exception se) {
 		      System.err.println("UseService: Threw an Exception checking if facility is in use during interval.");
 		      System.err.println(se.getMessage());
@@ -76,7 +75,8 @@ public class UseService {
 			System.out.println("This room at the facility is already in use during this interval.");
 		} else {
 			try {
-				useDAO.assignFacilityToUse(facUse);
+				//useDAO.assignFacilityToUse(facUse);
+				useHibernateDAO.assignFacilityToUse(facUse);
 		    } catch (Exception se) {
 		      System.err.println("UseService: Threw an Exception assigning a facility to use.");
 		      System.err.println(se.getMessage());
