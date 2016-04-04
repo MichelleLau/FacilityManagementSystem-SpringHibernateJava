@@ -8,12 +8,13 @@ import java.util.List;
 import java.time.temporal.ChronoUnit;
 
 import com.facility.base.Facility;
-import com.facility.dal.MaintenanceDAO;
+import com.facility.dal.*;
 import com.facility.maintenance.Maintenance;
 
 public class MaintenanceService {
 
 	private MaintenanceDAO maintenanceDAO = new MaintenanceDAO();
+	private FacilityMaintenanceHibernateDAO maintenanceHibernateDAO = new FacilityMaintenanceHibernateDAO();
 	
 	/***
 	 * Creates a new maintenance request specifying the facility, maintenance details, and the cost.
@@ -24,7 +25,8 @@ public class MaintenanceService {
 	 */
 	public Maintenance makeFacilityMaintRequest(Facility fac, String maintenanceDetails, int cost) {
 		try {
-			return maintenanceDAO.makeFacilityMaintRequest(fac, maintenanceDetails, cost);
+			//return maintenanceDAO.makeFacilityMaintRequest(fac, maintenanceDetails, cost);
+			return maintenanceHibernateDAO.makeFacilityMaintRequest(fac, maintenanceDetails, cost);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw an Exception making a "
 	      		+ "maintenance request.");

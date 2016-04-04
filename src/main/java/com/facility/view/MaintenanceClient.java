@@ -20,7 +20,7 @@ public class MaintenanceClient {
 		
         MaintenanceService maintenanceService = (MaintenanceService) context.getBean("maintenanceService");
 		
-		//set up facilities for dummy data
+/*		//set up facilities for dummy data
 		Facility fact1 = new FacilityImpl();
 		FacilityDetail factDet1 = new FacilityDetailImpl();
 		fact1.setFacilityID(1);
@@ -38,20 +38,23 @@ public class MaintenanceClient {
 		fact4.setFacilityID(4);
 		factDet4.setNumberOfRooms(5);
 		fact4.setFacilityDetail(factDet4);
+*/
 		
-		Facility fact7 = new FacilityImpl();
-		FacilityDetail factDet7 = new FacilityDetailImpl();
+		Facility fact7 = (Facility) context.getBean("facility");
+		FacilityDetail factDet7 = (FacilityDetail) context.getBean("facilityDetail");
 		fact7.setFacilityID(7);
+		factDet7.setFacilityID(7);
+		factDet7.setFacility(fact7);
 		factDet7.setNumberOfRooms(10);
 		fact7.setFacilityDetail(factDet7);
-		
+        
 		
 		System.out.println("\nMaintenanceClient: *********** Creating new facility maintenance request *****************");
-		Maintenance maintenance = maintenanceService.makeFacilityMaintRequest(fact1, "testing maintenance", 100);
+		Maintenance maintenance = maintenanceService.makeFacilityMaintRequest(fact7, "testing maintenance", 100);
 		System.out.println("\nMaintenanceClient: *********** Maintenance request created *****************");
 		
 		
-		System.out.println("\nMaintenanceClient: *********** Scheduling this maintenance request *****************");
+		/*System.out.println("\nMaintenanceClient: *********** Scheduling this maintenance request *****************");
 		maintenanceService.scheduleMaintenance(maintenance);
 		System.out.println("\nMaintenanceClient: *********** Maintenance request scheduled *****************");
 		
@@ -108,7 +111,7 @@ public class MaintenanceClient {
 		double problemRate = maintenanceService.calcProblemRateForFacility(fact3) * 100;
 		System.out.print("\nThe problem rate at Facility #" + fact3.getFacilityID() + " is ");
 		System.out.format("%.2f", problemRate);
-		System.out.print("%.");
+		System.out.print("%.");*/
 				
 	}
 	
