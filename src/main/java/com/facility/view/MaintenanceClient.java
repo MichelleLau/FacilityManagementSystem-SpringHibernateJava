@@ -61,35 +61,35 @@ public class MaintenanceClient {
 		System.out.println("\nMaintenanceClient: *********** Calculate total maintenance cost of a facility *****************");
 		int totalCost = maintenanceService.calcMaintenanceCostForFacility(fact1);
 		System.out.println("The total cost of maintenance already completed at Facility #" + fact1.getFacilityID() + " is $" + totalCost + ".");
-		
+		*/
 		
 		//uses sample data to list maintenance requests, formatted as a table
 		System.out.println("\nMaintenanceClient: *********** List current maintenance requests at a facility *****************");
-		List<Maintenance> maintRequestList = maintenanceService.listMaintRequests(fact3);
+		List<Maintenance> maintRequestList = maintenanceService.listMaintRequests(fact7);
 		Object[][] requests = new Object[maintRequestList.size() + 1][2];
 		requests[0] = new Object[] {"Maintenance Request Details", "Cost"};
 		for (int i = 1; i <= maintRequestList.size(); i++) {
 			requests[i] = new Object[] {maintRequestList.get(i-1).getDetails(), maintRequestList.get(i-1).getCost()};
 		}
-		System.out.println("Current maintenance requests at Facility #" + fact3.getFacilityID() + ":");
+		System.out.println("Current maintenance requests at Facility #" + fact7.getFacilityID() + ":");
 		for (Object[] row : requests) {
 			System.out.format("   %-29s%6s\n", row);
 		}
 		
 		//uses sample data to list completed maintenance, formatted as a table
 		System.out.println("\nMaintenanceClient: *********** List maintenance completed at a facility *****************");
-		List<Maintenance> maintenanceList = maintenanceService.listMaintenance(fact3);
+		List<Maintenance> maintenanceList = maintenanceService.listMaintenance(fact7);
 		Object[][] maintenanceTable = new Object[maintenanceList.size() + 1][2];
 		maintenanceTable[0] = new Object[] {"Maintenance Details", "Cost"};
 		for (int i = 1; i <= maintenanceList.size(); i++) {
 			maintenanceTable[i] = new Object[] {maintenanceList.get(i-1).getDetails(), maintenanceList.get(i-1).getCost()};
 		}
-		System.out.println("Maintenance completed at Facility #" + fact3.getFacilityID() + ":");
+		System.out.println("Maintenance completed at Facility #" + fact7.getFacilityID() + ":");
 		for (Object[] row : maintenanceTable) {
 			System.out.format("   %-30s%6s\n", row);
 		}
 		
-		//uses sample data to list facility problems, formatted as a table
+/*		//uses sample data to list facility problems, formatted as a table
 		System.out.println("\nMaintenanceClient: *********** List all problems that have affected a facility *****************");
 		List<Maintenance> facilityProblemsList = maintenanceService.listFacilityProblems(fact3);
 		Object[][] problems = new Object[facilityProblemsList.size() + 1][2];

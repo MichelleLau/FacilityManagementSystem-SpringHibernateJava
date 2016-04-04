@@ -25,7 +25,6 @@ public class MaintenanceService {
 	 */
 	public Maintenance makeFacilityMaintRequest(Facility fac, String maintenanceDetails, int cost) {
 		try {
-			//return maintenanceDAO.makeFacilityMaintRequest(fac, maintenanceDetails, cost);
 			return maintenanceHibernateDAO.makeFacilityMaintRequest(fac, maintenanceDetails, cost);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw an Exception making a "
@@ -73,7 +72,7 @@ public class MaintenanceService {
 	 */
 	public List<Maintenance> listMaintRequests(Facility fac) {
 		try {
-			return maintenanceDAO.listMaintRequests(fac);
+			return maintenanceHibernateDAO.listMaintRequests(fac);
 		} catch (Exception se) {
 			System.err.println("MaintenanceService: Threw an Exception listing "
 					+ "maintenance requests.");
@@ -89,7 +88,8 @@ public class MaintenanceService {
 	 */
 	public List<Maintenance> listMaintenance(Facility fac) {
 		try {
-			return maintenanceDAO.listMaintenance(fac);
+			//return maintenanceDAO.listMaintenance(fac);
+			return maintenanceHibernateDAO.listMaintenance(fac);
 		} catch (Exception se) {
 			System.err.println("MaintenanceService: Threw an Exception listing "
 					+ "completed maintenance.");
