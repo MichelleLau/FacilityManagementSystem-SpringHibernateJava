@@ -10,6 +10,7 @@ import com.facility.use.*;
 
 public class FacilityUseHibernateDAO {
 
+	@SuppressWarnings("unchecked")
 	public List<Inspection> listInspections(Facility fac) {
 		try {
 			System.out.println("*************** Retrieving a list of Inspections for Facility ...  " + fac.getFacilityID());
@@ -35,6 +36,7 @@ public class FacilityUseHibernateDAO {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean isInUseDuringInterval(FacilityUse facUse) {
 		boolean result = false;
 		try {

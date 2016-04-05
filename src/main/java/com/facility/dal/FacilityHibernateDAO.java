@@ -10,6 +10,7 @@ import com.facility.base.*;
 public class FacilityHibernateDAO {
 	
 	
+	@SuppressWarnings("rawtypes")
 	public FacilityDetail getFacilityInformation(int facilityID) {
 		try {
 			System.out.println("*************** Searching for facility information with ID ...  " + facilityID);
@@ -91,6 +92,7 @@ public class FacilityHibernateDAO {
 		}
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Facility> listFacilities() {
 		try {
 			System.out.println("*************** Retrieving list of all facilities ...  " );

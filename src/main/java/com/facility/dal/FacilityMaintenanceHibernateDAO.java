@@ -42,6 +42,7 @@ public class FacilityMaintenanceHibernateDAO {
 		session.getTransaction().commit();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Maintenance> listMaintRequests(Facility fac) {
 		try {
 			System.out.println("*************** Retrieving a list of maintenance requests for Facility ...  " + fac.getFacilityID());
@@ -67,6 +68,7 @@ public class FacilityMaintenanceHibernateDAO {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Maintenance> listMaintenance(Facility fac) {
 		try {
 			System.out.println("*************** Retrieving a list of maintenance requests for Facility ...  " + fac.getFacilityID());
@@ -92,6 +94,7 @@ public class FacilityMaintenanceHibernateDAO {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public int calcMaintenanceCostForFacility(Facility fac) {
 		try {
 			System.out.println("*************** Calculating maintenance cost for Facility ...  " + fac.getFacilityID());
