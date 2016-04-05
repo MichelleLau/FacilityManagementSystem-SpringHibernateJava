@@ -166,4 +166,17 @@ public class MaintenanceService {
 		
 		return 0;
 	}
+	
+	/***
+	 * Removes maintenance from maintenance table.
+	 * @param maintenance to be removed
+	 */
+	public void removeMaintenance(Maintenance maintenance) {
+		try {
+			maintenanceHibernateDAO.removeMaintenance(maintenance);
+	    } catch (Exception se) {
+	      System.err.println("MaintenanceService: Threw an Exception removing maintenance.");
+	      System.err.println(se.getMessage());
+	    }
+	}
 }

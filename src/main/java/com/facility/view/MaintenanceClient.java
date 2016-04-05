@@ -111,6 +111,9 @@ public class MaintenanceClient {
 		System.out.format("%.2f", problemRate);
 		System.out.print("%.");
 				
+		System.out.println("\nMaintenanceClient: *********** Remove test maintenance for a facility *****************");
+		maintenanceService.removeMaintenance(maintenance);
+		
 	}
 	
 }

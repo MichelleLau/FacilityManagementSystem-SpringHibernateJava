@@ -10,6 +10,12 @@ import com.facility.base.*;
 public class FacilityHibernateDAO {
 	
 	
+	/***
+	 * Returns detail information about a facility, including its name, facility ID, number of rooms, 
+	 * and a phone number if it's listed.
+	 * @param facilityID of facility
+	 * @return facility detail information
+	 */
 	@SuppressWarnings("rawtypes")
 	public FacilityDetail getFacilityInformation(int facilityID) {
 		try {
@@ -37,6 +43,11 @@ public class FacilityHibernateDAO {
 		return null;
 	}
 	
+	/***
+	 * Add a new facility to the facility table and details about the facility to facility_detail table.
+	 * Must create a new facility object before running addNewFacility method.
+	 * @param fac Facility object to be added to the database
+	 */
 	public void addNewFacility(Facility fac) {
 		System.out.println("*************** Adding facility to DB with ID ...  " + fac.getFacilityID());
 		Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
@@ -45,6 +56,11 @@ public class FacilityHibernateDAO {
 		session.getTransaction().commit();
 	}
 
+	/***
+	 * Adds optional detail information (phone number) about the facility
+	 * @param ID facility ID
+	 * @param phoneNumber number to be added
+	 */
 	public void addFacilityDetail(int ID, int phoneNumber) {
 		try {
 			System.out.println("*************** Adding facility details to Facility  " + ID);
@@ -62,6 +78,10 @@ public class FacilityHibernateDAO {
 		}
 	}
 	
+	/***
+	 * Removes facility from the facility and facility_detail tables.
+	 * @param fac facility to be removed
+	 */
 	public void removeFacility(Facility fac) {
 		//removes from facility and facility_detail tables
 		System.out.println("*************** Deleting facility from DB with ID ...  " + fac.getFacilityID());
@@ -71,6 +91,10 @@ public class FacilityHibernateDAO {
 		session.getTransaction().commit();
 	}
 	
+	/***
+	 * Removes facility from the use table.
+	 * @param facilityID of facility to be removed
+	 */
 	public void removeFacilityUse(int facilityID) {
 		try {
 			System.out.println("*************** Removing facility from use table ...  " );
@@ -92,6 +116,10 @@ public class FacilityHibernateDAO {
 		}
 	}
 	
+	/***
+	 * List the name and ID number of all the facilities
+	 * @return list of facilities
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Facility> listFacilities() {
 		try {
