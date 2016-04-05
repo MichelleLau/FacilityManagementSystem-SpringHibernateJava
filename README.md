@@ -1,29 +1,28 @@
 # Facility-Management-System-Java
-COMP 373/474 - Objects/Frameworks/Patterns - Spring 2016 - Project 1 using PostgreSQL on Heroku
+COMP 373/474 - Objects/Frameworks/Patterns - Spring 2016 - Project 2 using PostgreSQL on Heroku and Spring + Hibernate Frameworks
 
-###Project 1: Facility Management System Design and Implementation
+###Project 2: Object Wiring Using Spring and O/R Mapping Using Hibernate – A Facility Management System 
+
 
 **Project Description:**
 
-In this project, we will start providing an object domain model for Facility Management System by
-addressing the design and implementation using OOP. The aim is to have a domain model that is
-designed using OOP that will be used to study Object relationship and Dependency.
+In this project, we will change the object dependency and collaboration management from directly
+instantiating to Dependency Injection container (Spring). We will also change the data access
+mechanism from JDBC to O/R Mapping tool (hibernate). 
 
-Based on the specification provided for a Facility Management System:
+- Domain Modeling and implementation and mapping domain model to persistence model
+- Implementing the data access layer by designing and implementing the persistence layer using
+relational tables to map to objects and the required/necessary data access objects. 
 
-- Identify the main entitles of the problem domain.
-- Identify their attributes.
-- Identify their relationships.
-- Identify their roles and responsibilities.
-- Discover other objects that facilitate implementing responsibilities.
-- Make available all client interfaces/services specified in the specification document (Facility, Facility Use, and Facility Maintenance Client Interfaces).
-- Relational tables to persist the object model you created using any of relational DB of
-your choice.
-- Persistence layer code using JDBC. 
+You need to design and implement: 
 
+- Spring container configuration for Dependency Injection for the application that you developed in [Project 1](https://github.com/csoulakian/Facility-Management-System-Java).
+- Using ApplicationContext Mechanism
+- Dependency relationship using XML
+- O/R Mapping between classes and tables in XML
+- Hibernate configuration 
 
-
-###Facility Management System Design
+###Facility Management System Design (from [Project 1](https://github.com/csoulakian/Facility-Management-System-Java))
 
 **System Name:** Facility Management System
 
