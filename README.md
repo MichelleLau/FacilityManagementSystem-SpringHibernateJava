@@ -1,5 +1,5 @@
 # FacilityManagementSystem-SpringHibernateJava
-COMP 373/474 - Objects/Frameworks/Patterns - Spring 2016 - Project 2 using PostgreSQL on Heroku and Spring + Hibernate Frameworks
+COMP 373/473 - Objects/Frameworks/Patterns - Spring 2016 - Project 2 using PostgreSQL on Heroku and Spring + Hibernate Frameworks
 
 ###Project 2: Object Wiring Using Spring and O/R Mapping Using Hibernate --- A Facility Management System 
 
